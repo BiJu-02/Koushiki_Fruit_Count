@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    Play playState = new Play();
-    Submited submittedState = new Submited();
+    public Play playState = new();
+    public Submited submittedState = new();
 
     IGameState CurrState = null;
 
