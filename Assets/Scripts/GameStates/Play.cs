@@ -31,6 +31,8 @@ namespace Assets.Scripts
             selectedObj = null;
             Glob.Ctx.placedInBasket.Clear();
             Problem.Generate();
+            FruitSpawn.Spawn();
+            Glob.Ctx.Submit.onClick.AddListener(CheckBasket);
         }
 
         public void StopState(IGameState gameState)
@@ -56,6 +58,15 @@ namespace Assets.Scripts
                 { selectedObj = null; }
             }
             else { return; }
+        }
+        
+
+        private void CheckBasket()
+        {
+            while (Glob.Ctx.placedInBasket.Count > 0)
+            {
+
+            }
         }
     }
 }

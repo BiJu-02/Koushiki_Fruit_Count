@@ -26,6 +26,7 @@ public class Glob : MonoBehaviour
     public GameObject fruit;
     public Camera cam;
 
+    public int maxSpawned;
     public int maxFruits;
     public string currPrompt;
     public List<PromptObjective> objectiveList = new();
@@ -33,6 +34,8 @@ public class Glob : MonoBehaviour
 
     public int TotalFruitInBasket = 0;
     public TMP_Text TotalFruitInBasketText;
+
+    public Button Submit;
 
 
     private void Awake()

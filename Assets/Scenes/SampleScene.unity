@@ -611,6 +611,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 458b96fa7bc9e4c409f9b7f0b8bb2630, type: 3}
   fruit: {fileID: 3100296299431372635, guid: 0f7c9c91b53fd3c4f8b3e800470def1e, type: 3}
   cam: {fileID: 519420031}
+  maxSpawned: 20
   maxFruits: 10
   currPrompt: 
   promptText: {fileID: 370686948}
