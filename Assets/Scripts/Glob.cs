@@ -21,7 +21,7 @@ public class Glob : MonoBehaviour
     public static Glob Ctx;     // global context
 
     public Func<Vector2, Vector2> worldPoint = (pos) => Glob.Ctx.cam.ScreenToWorldPoint(pos);
-    public List<GameObject> placedInBasket;
+    public List<string> placedInBasket = new();
     public List<Sprite> spriteList;
     public GameObject fruit;
     public Camera cam;

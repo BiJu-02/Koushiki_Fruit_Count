@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts
 {
-    internal interface IGameState
+    public interface IGameState
     {
         public void StartState(IGameState gameState);
         public void UpdateState(IGameState gameState);

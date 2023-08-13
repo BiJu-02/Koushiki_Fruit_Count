@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts
 {
-    internal class Submited : IGameState
+    public class Submited : IGameState
     {
         public void StartState(IGameState gameState)
         {

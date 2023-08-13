@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
-    internal class Play : IGameState
+    public class Play : IGameState
     {
         // extra var for this state here
         Fruit selectedObj;
@@ -29,6 +29,7 @@ namespace Assets.Scripts
         public void StartState(IGameState gameState)
         {
             selectedObj = null;
+            Glob.Ctx.placedInBasket.Clear();
             Problem.Generate();
         }
 
