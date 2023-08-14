@@ -1,26 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using UnityEngine;
+
 
 namespace Assets.Scripts
 {
     public class Submited : IGameState
     {
-        public void StartState(IGameState gameState)
+        public void StartState(GameManager Ctx)
         {
-            throw new NotImplementedException();
+            Glob.Ctx.gameEndPanel.SetActive(true);
+            Ctx.enabled = false;
         }
 
-        public void StopState(IGameState gameState)
+        public void StopState(GameManager Ctx)
         {
-            throw new NotImplementedException();
+            Glob.Ctx.gameEndPanel.SetActive(false);
+            Ctx.enabled = true;
         }
 
-        public void UpdateState(IGameState gameState)
+        public void UpdateState(GameManager Ctx)
         {
-            // animation for button submission
+            Debug.Log("This function is not called...If you are seeing this in console...RUN!!!");
         }
     }
 }

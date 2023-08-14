@@ -9,20 +9,34 @@ public class GameManager : MonoBehaviour
     public Play playState = new();
     public Submited submittedState = new();
 
-    IGameState CurrState = null;
+    public IGameState CurrState = null;
 
     void Start()
     {
+        // add eventlisteners to all buttons here
+        Glob.Ctx.Submit.onClick.AddListener(UIManager.SubmitButt);
+        Glob.Ctx.PlayAgain.onClick.AddListener(UIManager.PlayAgainButt);
+        Glob.Ctx.Exit.onClick.AddListener(UIManager.ExitButt);
+
         CurrState = playState;
-        CurrState.StartState(CurrState);
+        CurrState.StartState(this);
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        CurrState.UpdateState(CurrState);
+        CurrState.UpdateState(this);
     }
 
+    public void SwitchState(IGameState newState)
+    {
+        CurrState.StopState(this);
+        CurrState = newState;
+        CurrState.StartState(this);
+    }
+
+    public static void DestroyObj(GameObject obj)
+    { Destroy(obj); }
 
 }

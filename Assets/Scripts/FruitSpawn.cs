@@ -16,6 +16,7 @@ public class FruitSpawn : MonoBehaviour
             {
                 GameObject newFruit = Instantiate(Glob.Ctx.fruit, new Vector3(UnityEngine.Random.Range(-3.0f, -1.0f), -2.5f, 0), Quaternion.identity);
                 newFruit.GetComponent<SpriteRenderer>().sprite = Glob.Ctx.spriteList[Glob.Ctx.objectiveList[i].fruitIdx];
+                Glob.Ctx.spawnedFruitObj.Add(newFruit);
                 Debug.Log(newFruit.GetComponent<SpriteRenderer>().sprite.name);
                 totalSpawned++;
             }
@@ -24,6 +25,7 @@ public class FruitSpawn : MonoBehaviour
         {
             GameObject newFruit = Instantiate(Glob.Ctx.fruit, new Vector3(UnityEngine.Random.Range(-3.0f, -1.0f), -2.5f, 0), Quaternion.identity);
             newFruit.GetComponent<SpriteRenderer>().sprite = Glob.Ctx.spriteList[UnityEngine.Random.Range(0, Glob.Ctx.spriteList.Count)];
+            Glob.Ctx.spawnedFruitObj.Add(newFruit);
             totalSpawned++;
         }
     }

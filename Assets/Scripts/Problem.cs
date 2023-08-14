@@ -21,6 +21,7 @@ public class Problem : MonoBehaviour
             prmpt += fCnt.ToString() + " " + Glob.Ctx.spriteList[fIdx].name + "; ";
             Glob.Ctx.objectiveList.Add(new PromptObjective(fIdx, fCnt));
         }
+        Glob.Ctx.totalObjectiveFruits = totalCount;
         Glob.Ctx.promptText.text = prmpt;
     }
     

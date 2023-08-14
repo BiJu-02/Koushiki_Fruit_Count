@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using UnityEditor;
 using UnityEngine;
 
 namespace Assets.Scripts
@@ -26,19 +24,30 @@ namespace Assets.Scripts
             }
         }
 
-        public void StartState(IGameState gameState)
+        public void StartState(GameManager Ctx)
         {
             selectedObj = null;
             Glob.Ctx.placedInBasket.Clear();
             Problem.Generate();
             FruitSpawn.Spawn();
-            Glob.Ctx.Submit.onClick.AddListener(CheckBasket);
         }
 
-        public void StopState(IGameState gameState)
-        { }
+        public void StopState(GameManager Ctx)
+        {
+            foreach (var x in Glob.Ctx.spawnedFruitObj)
+            { GameManager.DestroyObj(x); }
+            Glob.Ctx.spawnedFruitObj.Clear();
+            Glob.Ctx.objectiveList.Clear();
+            Glob.Ctx.placedInBasket.Clear();
+            Glob.Ctx.currPrompt = "";
+            Glob.Ctx.promptText.text = "";
+            Glob.Ctx.TotalFruitInBasket = 0;
+            Glob.Ctx.TotalFruitInBasketText.text = "";
+            Glob.Ctx.totalObjectiveFruits = 0;
+            Glob.Ctx.lives = 3;
+        }
 
-        public void UpdateState(IGameState gameState)
+        public void UpdateState(GameManager Ctx)
         {
             // input and stuff here for drag and drop
             if (Input.GetMouseButtonDown(0))
@@ -60,13 +69,5 @@ namespace Assets.Scripts
             else { return; }
         }
         
-
-        private void CheckBasket()
-        {
-            while (Glob.Ctx.placedInBasket.Count > 0)
-            {
-
-            }
-        }
     }
 }
