@@ -9,8 +9,8 @@ namespace Assets.Scripts
 {
     public interface IGameState
     {
-        public void StartState(GameManager Ctx);
-        public void UpdateState(GameManager Ctx);
-        public void StopState(GameManager Ctx);
+        public void StartState(GameManager ctx, IGameMessage msg);
+        public void UpdateState(GameManager ctx);
+        public void StopState(GameManager ctx, IGameMessage msg);
     }
 }

@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
         Glob.Ctx.Exit.onClick.AddListener(UIManager.ExitButt);
 
         CurrState = playState;
-        CurrState.StartState(this);
+        CurrState.StartState(this, null);
     }
 
 
@@ -29,11 +29,11 @@ public class GameManager : MonoBehaviour
         CurrState.UpdateState(this);
     }
 
-    public void SwitchState(IGameState newState)
+    public void SwitchState(IGameState newState, IGameMessage msg = null)
     {
-        CurrState.StopState(this);
+        CurrState.StopState(this, msg);
         CurrState = newState;
-        CurrState.StartState(this);
+        CurrState.StartState(this, msg);
     }
 
     public static void DestroyObj(GameObject obj)

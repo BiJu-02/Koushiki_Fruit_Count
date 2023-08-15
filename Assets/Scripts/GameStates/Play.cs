@@ -24,7 +24,7 @@ namespace Assets.Scripts
             }
         }
 
-        public void StartState(GameManager Ctx)
+        public void StartState(GameManager Ctx, IGameMessage msg = null)
         {
             selectedObj = null;
             Glob.Ctx.placedInBasket.Clear();
@@ -32,7 +32,7 @@ namespace Assets.Scripts
             FruitSpawn.Spawn();
         }
 
-        public void StopState(GameManager Ctx)
+        public void StopState(GameManager Ctx, IGameMessage msg = null)
         {
             foreach (var x in Glob.Ctx.spawnedFruitObj)
             { GameManager.DestroyObj(x); }

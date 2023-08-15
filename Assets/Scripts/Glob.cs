@@ -44,6 +44,7 @@ public class Glob : MonoBehaviour
     public int lives;
 
     public GameObject gameEndPanel;
+    public TMP_Text SuccessText;
     public Button PlayAgain;
     public Button Exit;
 

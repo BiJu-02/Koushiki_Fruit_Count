@@ -27,9 +27,9 @@ public class UIManager : MonoBehaviour
         }
 
         if (success)
-        { Glob.Ctx.gameManager.SwitchState(Glob.Ctx.gameManager.submittedState); }
+        { Glob.Ctx.gameManager.SwitchState(Glob.Ctx.gameManager.submittedState, new SubmitMessage(true)); }
         else if (Glob.Ctx.lives < 1)
-        { Glob.Ctx.gameManager.SwitchState(Glob.Ctx.gameManager.submittedState); }
+        { Glob.Ctx.gameManager.SwitchState(Glob.Ctx.gameManager.submittedState, new SubmitMessage(false)); }
         else
         { Debug.Log("life gone"); }
     }
