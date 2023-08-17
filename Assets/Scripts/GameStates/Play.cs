@@ -30,6 +30,7 @@ namespace Assets.Scripts
             Glob.Ctx.placedInBasket.Clear();
             Problem.Generate();
             FruitSpawn.Spawn();
+            LifeCounter.InitLife();
         }
 
         public void StopState(GameManager Ctx, IGameMessage msg = null)

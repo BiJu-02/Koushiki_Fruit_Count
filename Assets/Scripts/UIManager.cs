@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
         Debug.Log("Clicked");
         bool success = true;
         if (Glob.Ctx.totalObjectiveFruits != Glob.Ctx.TotalFruitInBasket)
-        { Glob.Ctx.lives -= 1; success = false; }
+        { LifeCounter.DecLife(); success = false; }
         else
         {
             for (int i = 0; i < Glob.Ctx.objectiveList.Count; i++)
@@ -22,7 +22,7 @@ public class UIManager : MonoBehaviour
                     { fCnt--; }
                 }
                 if (fCnt != 0)
-                { Glob.Ctx.lives -= 1; success = false; break; }
+                { LifeCounter.DecLife(); success = false; break; }
             }
         }
 
@@ -48,4 +48,6 @@ public class UIManager : MonoBehaviour
     #endif
         Application.Quit();
     }
+
+    
 }
