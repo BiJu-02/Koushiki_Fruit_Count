@@ -1172,10 +1172,10 @@ MonoBehaviour:
   spriteList:
   - {fileID: 21300000, guid: 7cea976e1ace4444f9ba08733394d76a, type: 3}
   - {fileID: 21300000, guid: 2aa6ab62866ce4439ab7303f7da55e51, type: 3}
-  - {fileID: 21300000, guid: 50e0347d981414d189ff77217bc6e69c, type: 3}
-  - {fileID: 21300000, guid: 26b4d8692c5e74d17bd9dc28bcbe961b, type: 3}
-  - {fileID: 21300000, guid: 55e29d9a03fe24caba914d7134c713c5, type: 3}
-  - {fileID: 21300000, guid: c715a9f7f4d044049ad333bf06306ed0, type: 3}
+  - {fileID: 21300000, guid: cc8eede50ee1f49efa314de75e5506e3, type: 3}
+  - {fileID: 21300000, guid: f6d5f58465fff456eb84bd071b3134b9, type: 3}
+  - {fileID: 21300000, guid: 8db812cdee0ff412c94a9c8b74e0b199, type: 3}
+  - {fileID: 21300000, guid: bb7faf4c850ef48cdb33c2bd17737619, type: 3}
   - {fileID: 21300000, guid: 6fc31519aded24a839c1af9e163b6c01, type: 3}
   - {fileID: 21300000, guid: a2e86a433aa8b49018db7c80923744bd, type: 3}
   - {fileID: 21300000, guid: 31740551f69654fb7bc2a39c35d57d9c, type: 3}
