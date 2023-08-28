@@ -5,4 +5,6 @@ using UnityEngine;
 
 public class PlayMessage : IGameMessage
 {
+    public int mIdx;
+    public PlayMessage(int mIdx) { this.mIdx = mIdx; }
 }

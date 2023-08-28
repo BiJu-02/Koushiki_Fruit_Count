@@ -16,6 +16,9 @@ public struct PromptObjective
     }
 }
 
+[System.Serializable] public class SpriteNames { public List<Sprite> sp; }
+
+
 public class Glob : MonoBehaviour
 {
     public static Glob Ctx;     // global context
@@ -23,12 +26,17 @@ public class Glob : MonoBehaviour
     public GameManager gameManager;
 
     public Func<Vector2, Vector2> worldPoint = (pos) => Glob.Ctx.cam.ScreenToWorldPoint(pos);
+    public List<SpriteNames> sprites;
     public List<Sprite> spriteList;
-    public GameObject fruit;
+    public GameObject objPref;
     public Camera cam;
 
+    public GameObject ModePanel;
+    public List<Button> modeButtonList = new();
+    public int curr_mode_idx;
+
     public int maxSpawned;
-    public int maxFruits;
+    public int maxObjects;
 
     public string currPrompt;
     public List<PromptObjective> objectiveList = new();

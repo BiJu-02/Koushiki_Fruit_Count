@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public SelectMode selectModeState = new();
     public Play playState = new();
     public Submited submittedState = new();
 
@@ -18,7 +19,13 @@ public class GameManager : MonoBehaviour
         Glob.Ctx.PlayAgain.onClick.AddListener(UIManager.PlayAgainButt);
         Glob.Ctx.Exit.onClick.AddListener(UIManager.ExitButt);
 
-        CurrState = playState;
+        for (int i = 0; i < Glob.Ctx.modeButtonList.Count; i++)
+        {
+            var x = i;
+            Glob.Ctx.modeButtonList[x].onClick.AddListener(() => { UIManager.ModeButt(x); });
+        }
+
+        CurrState = selectModeState;
         CurrState.StartState(this, null);
     }
 
