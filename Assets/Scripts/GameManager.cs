@@ -14,16 +14,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        // add eventlisteners to all buttons here
-        Glob.Ctx.Submit.onClick.AddListener(UIManager.SubmitButt);
-        Glob.Ctx.PlayAgain.onClick.AddListener(UIManager.PlayAgainButt);
-        Glob.Ctx.Exit.onClick.AddListener(UIManager.ExitButt);
-
-        for (int i = 0; i < Glob.Ctx.modeButtonList.Count; i++)
-        {
-            var x = i;
-            Glob.Ctx.modeButtonList[x].onClick.AddListener(() => { UIManager.ModeButt(x); });
-        }
+        UIManager.Init();
 
         CurrState = selectModeState;
         CurrState.StartState(this, null);
@@ -42,8 +33,4 @@ public class GameManager : MonoBehaviour
         CurrState = newState;
         CurrState.StartState(this, msg);
     }
-
-    public static void DestroyObj(GameObject obj)
-    { Destroy(obj); }
-
 }

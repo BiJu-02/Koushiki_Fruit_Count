@@ -32,7 +32,9 @@ namespace Assets.Scripts
                 Glob.Ctx.curr_mode_idx = pMsg.mIdx;
             }
             selectedObj = null;
-            Glob.Ctx.placedInBasket.Clear();
+            Glob.Ctx.placedInContainer.Clear();
+            Glob.Ctx.Container.GetComponent<SpriteRenderer>().sprite = Glob.Ctx.sprites[Glob.Ctx.curr_mode_idx].container;
+            Glob.Ctx.BackGround.GetComponent<SpriteRenderer>().sprite = Glob.Ctx.sprites[Glob.Ctx.curr_mode_idx].bg;
             Problem.Generate();
             ObjectSpawn.Spawn();
             LifeCounter.InitLife();
@@ -40,16 +42,16 @@ namespace Assets.Scripts
 
         public void StopState(GameManager Ctx, IGameMessage msg = null)
         {
-            foreach (var x in Glob.Ctx.spawnedFruitObj)
-            { GameManager.DestroyObj(x); }
-            Glob.Ctx.spawnedFruitObj.Clear();
+            foreach (var x in Glob.Ctx.spawnedObj)
+            { GameObject.Destroy(x); }
+            Glob.Ctx.spawnedObj.Clear();
             Glob.Ctx.objectiveList.Clear();
-            Glob.Ctx.placedInBasket.Clear();
+            Glob.Ctx.placedInContainer.Clear();
             Glob.Ctx.currPrompt = "";
             Glob.Ctx.promptText.text = "";
-            Glob.Ctx.TotalFruitInBasket = 0;
-            Glob.Ctx.TotalFruitInBasketText.text = "";
-            Glob.Ctx.totalObjectiveFruits = 0;
+            Glob.Ctx.TotalObjInContainer = 0;
+            Glob.Ctx.TotalObjectInConatinerText.text = "";
+            Glob.Ctx.totalObjectiveObj = 0;
             Glob.Ctx.lives = 3;
         }
 

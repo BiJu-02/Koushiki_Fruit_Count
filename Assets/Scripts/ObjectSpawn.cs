@@ -15,16 +15,16 @@ public class ObjectSpawn : MonoBehaviour
             for (int j = 0; j < m; j++)
             {
                 GameObject newObj = Instantiate(Glob.Ctx.objPref, new Vector3(UnityEngine.Random.Range(-3.0f, -1.0f), -2.5f, 0), Quaternion.identity);
-                newObj.GetComponent<SpriteRenderer>().sprite = Glob.Ctx.sprites[Glob.Ctx.curr_mode_idx].sp[Glob.Ctx.objectiveList[i].fruitIdx];
-                Glob.Ctx.spawnedFruitObj.Add(newObj);
+                newObj.GetComponent<SpriteRenderer>().sprite = Glob.Ctx.sprites[Glob.Ctx.curr_mode_idx].spawnObj[Glob.Ctx.objectiveList[i].fruitIdx];
+                Glob.Ctx.spawnedObj.Add(newObj);
                 totalSpawned++;
             }
         }
         while (totalSpawned < Glob.Ctx.maxSpawned)
         {
             GameObject newObj = Instantiate(Glob.Ctx.objPref, new Vector3(UnityEngine.Random.Range(-3.0f, -1.0f), -2.5f, 0), Quaternion.identity);
-            newObj.GetComponent<SpriteRenderer>().sprite = Glob.Ctx.sprites[Glob.Ctx.curr_mode_idx].sp[UnityEngine.Random.Range(0, Glob.Ctx.sprites[Glob.Ctx.curr_mode_idx].sp.Count)];
-            Glob.Ctx.spawnedFruitObj.Add(newObj);
+            newObj.GetComponent<SpriteRenderer>().sprite = Glob.Ctx.sprites[Glob.Ctx.curr_mode_idx].spawnObj[UnityEngine.Random.Range(0, Glob.Ctx.sprites[Glob.Ctx.curr_mode_idx].spawnObj.Count)];
+            Glob.Ctx.spawnedObj.Add(newObj);
             totalSpawned++;
         }
     }

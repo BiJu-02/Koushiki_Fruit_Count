@@ -16,7 +16,13 @@ public struct PromptObjective
     }
 }
 
-[System.Serializable] public class SpriteNames { public List<Sprite> sp; }
+[System.Serializable]
+public class SpriteNames
+{
+    public List<Sprite> spawnObj; // list of spawnable objects sprite
+    public Sprite bg;       // background sprite
+    public Sprite container;       // container sprite
+}
 
 
 public class Glob : MonoBehaviour
@@ -27,13 +33,14 @@ public class Glob : MonoBehaviour
 
     public Func<Vector2, Vector2> worldPoint = (pos) => Glob.Ctx.cam.ScreenToWorldPoint(pos);
     public List<SpriteNames> sprites;
-    public List<Sprite> spriteList;
     public GameObject objPref;
     public Camera cam;
 
     public GameObject ModePanel;
     public List<Button> modeButtonList = new();
     public int curr_mode_idx;
+    public GameObject BackGround;
+    public GameObject Container;
 
     public int maxSpawned;
     public int maxObjects;
@@ -41,12 +48,12 @@ public class Glob : MonoBehaviour
     public string currPrompt;
     public List<PromptObjective> objectiveList = new();
     public TMP_Text promptText;
-    public int totalObjectiveFruits;
-    public List<GameObject> spawnedFruitObj;
+    public int totalObjectiveObj;
+    public List<GameObject> spawnedObj;
 
-    public List<string> placedInBasket = new();
-    public int TotalFruitInBasket = 0;
-    public TMP_Text TotalFruitInBasketText;
+    public List<string> placedInContainer = new();
+    public int TotalObjInContainer = 0;
+    public TMP_Text TotalObjectInConatinerText;
 
     public Button Submit;
     public int lives;

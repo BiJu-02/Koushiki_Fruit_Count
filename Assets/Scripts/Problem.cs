@@ -15,13 +15,13 @@ public class Problem : MonoBehaviour
         {
             int oCnt = UnityEngine.Random.Range(1, Glob.Ctx.maxObjects - totalCount > 5 ? 5 : Glob.Ctx.maxObjects - totalCount);
             totalCount += oCnt;
-            int oIdx = UnityEngine.Random.Range(0, Glob.Ctx.sprites[Glob.Ctx.curr_mode_idx].sp.Count);
+            int oIdx = UnityEngine.Random.Range(0, Glob.Ctx.sprites[Glob.Ctx.curr_mode_idx].spawnObj.Count);
             while (Glob.Ctx.objectiveList.Exists(x => x.fruitIdx == oIdx))
-            { oIdx = UnityEngine.Random.Range(0, Glob.Ctx.sprites[Glob.Ctx.curr_mode_idx].sp.Count); }
-            prmpt += oCnt.ToString() + " " + Glob.Ctx.sprites[Glob.Ctx.curr_mode_idx].sp[oIdx].name + "; ";
+            { oIdx = UnityEngine.Random.Range(0, Glob.Ctx.sprites[Glob.Ctx.curr_mode_idx].spawnObj.Count); }
+            prmpt += oCnt.ToString() + " " + Glob.Ctx.sprites[Glob.Ctx.curr_mode_idx].spawnObj[oIdx].name + "; ";
             Glob.Ctx.objectiveList.Add(new PromptObjective(oIdx, oCnt));
         }
-        Glob.Ctx.totalObjectiveFruits = totalCount;
+        Glob.Ctx.totalObjectiveObj = totalCount;
         Glob.Ctx.promptText.text = prmpt;
     }
     

@@ -6,7 +6,5 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts
 {
-    public interface IGameMessage
-    {
-    }
+    public interface IGameMessage { }
 }

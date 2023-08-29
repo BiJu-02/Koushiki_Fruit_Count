@@ -7,17 +7,17 @@ public class basket : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Glob.Ctx.TotalFruitInBasket += 1;
-        Glob.Ctx.TotalFruitInBasketText.text = "Total Fruit Count: " + Glob.Ctx.TotalFruitInBasket.ToString();
+        Glob.Ctx.TotalObjInContainer += 1;
+        Glob.Ctx.TotalObjectInConatinerText.text = "Total Fruit Count: " + Glob.Ctx.TotalObjInContainer.ToString();
         string fruitName = collision.gameObject.GetComponent<SpriteRenderer>().sprite.name;
-        Glob.Ctx.placedInBasket.Add(fruitName);
+        Glob.Ctx.placedInContainer.Add(fruitName);
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         Debug.Log("exit");
-        Glob.Ctx.TotalFruitInBasket -= 1;
-        Glob.Ctx.TotalFruitInBasketText.text = "Total Fruit Count: " + Glob.Ctx.TotalFruitInBasket.ToString();
+        Glob.Ctx.TotalObjInContainer -= 1;
+        Glob.Ctx.TotalObjectInConatinerText.text = "Total Fruit Count: " + Glob.Ctx.TotalObjInContainer.ToString();
         string fruitName = collision.gameObject.GetComponent<SpriteRenderer>().sprite.name;
-        Glob.Ctx.placedInBasket.Remove(fruitName);
+        Glob.Ctx.placedInContainer.Remove(fruitName);
     }
 }
