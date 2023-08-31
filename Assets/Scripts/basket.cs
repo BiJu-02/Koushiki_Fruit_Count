@@ -7,6 +7,8 @@ public class basket : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Glob.Ctx.GamePlayUI.GetComponent<AudioSource>().clip = Glob.Ctx.clipList[(int)Clips.touch];
+        Glob.Ctx.GamePlayUI.GetComponent<AudioSource>().Play();
         Glob.Ctx.TotalObjInContainer += 1;
         Glob.Ctx.TotalObjectInConatinerText.text = "Total Fruit Count: " + Glob.Ctx.TotalObjInContainer.ToString();
         string fruitName = collision.gameObject.GetComponent<SpriteRenderer>().sprite.name;

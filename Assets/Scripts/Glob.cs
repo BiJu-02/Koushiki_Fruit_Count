@@ -25,6 +25,16 @@ public class SpriteNames
 }
 
 
+public enum Clips
+{
+    start,
+    win,
+    fail,
+    lost,
+    touch
+}
+
+
 public class Glob : MonoBehaviour
 {
     public static Glob Ctx;     // global context
@@ -36,6 +46,8 @@ public class Glob : MonoBehaviour
     public GameObject objPref;
     public Camera cam;
 
+    public List<AudioClip> clipList;
+
     public GameObject ModePanel;
     public List<Button> modeButtonList = new();
     public int curr_mode_idx;
@@ -44,6 +56,8 @@ public class Glob : MonoBehaviour
 
     public int maxSpawned;      // actually spawned
     public int maxObjects;      // for prompt
+
+    public GameObject GamePlayUI;
 
     public string currPrompt;
     public List<PromptObjective> objectiveList = new();

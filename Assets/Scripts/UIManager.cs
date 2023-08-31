@@ -18,11 +18,17 @@ public class UIManager
     }
 
     public static void ModeButt(int m_idx)
-    { Glob.Ctx.gameManager.SwitchState(Glob.Ctx.gameManager.playState, new PlayMessage(m_idx)); }
+    {
+        // add sound
+        Glob.Ctx.GamePlayUI.GetComponent<AudioSource>().clip = Glob.Ctx.clipList[(int)Clips.start];
+        Glob.Ctx.GamePlayUI.GetComponent<AudioSource>().Play();
+
+        Glob.Ctx.gameManager.SwitchState(Glob.Ctx.gameManager.playState, new PlayMessage(m_idx));
+    }
 
     public static void SubmitButt()
     {
-        Debug.Log("Clicked");
+        // add sound for suc and fail
         bool success = true;
         if (Glob.Ctx.totalObjectiveObj != Glob.Ctx.TotalObjInContainer)
         { LifeCounter.DecLife(); success = false; }
@@ -43,23 +49,37 @@ public class UIManager
         }
 
         if (success)
-        { Glob.Ctx.gameManager.SwitchState(Glob.Ctx.gameManager.submittedState, new SubmitMessage(true)); }
+        {
+            Glob.Ctx.GamePlayUI.GetComponent<AudioSource>().clip = Glob.Ctx.clipList[(int)Clips.win];
+            Glob.Ctx.GamePlayUI.GetComponent<AudioSource>().Play();
+            Glob.Ctx.gameManager.SwitchState(Glob.Ctx.gameManager.submittedState, new SubmitMessage(true));
+        }
         else if (Glob.Ctx.lives < 1)
-        { Glob.Ctx.gameManager.SwitchState(Glob.Ctx.gameManager.submittedState, new SubmitMessage(false)); }
+        {
+            Glob.Ctx.GamePlayUI.GetComponent<AudioSource>().clip = Glob.Ctx.clipList[(int)Clips.lost];
+            Glob.Ctx.GamePlayUI.GetComponent<AudioSource>().Play();
+            Glob.Ctx.gameManager.SwitchState(Glob.Ctx.gameManager.submittedState, new SubmitMessage(false));
+        }
         else
-        { Debug.Log("life gone"); }
+        {
+            Glob.Ctx.GamePlayUI.GetComponent<AudioSource>().clip = Glob.Ctx.clipList[(int)Clips.fail];
+            Glob.Ctx.GamePlayUI.GetComponent<AudioSource>().Play();
+        }
     }
 
 
     public static void PlayAgainButt()
     {
+        // add sound
         Glob.Ctx.gameManager.SwitchState(Glob.Ctx.gameManager.playState);
     }
 
     public static void ExitButt()
     {
 
-    #if UNITY_EDITOR
+        // add sound
+
+#if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
     #endif
         Application.Quit();
