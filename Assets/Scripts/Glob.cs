@@ -42,8 +42,8 @@ public class Glob : MonoBehaviour
     public GameObject BackGround;
     public GameObject Container;
 
-    public int maxSpawned;
-    public int maxObjects;
+    public int maxSpawned;      // actually spawned
+    public int maxObjects;      // for prompt
 
     public string currPrompt;
     public List<PromptObjective> objectiveList = new();
